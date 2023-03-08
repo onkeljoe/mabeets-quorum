@@ -15,7 +15,7 @@ view the Github repository [onkeljoe/mabeets-quorum](https://github.com/onkeljoe
 
 ## Learn More
 
-To explain, what is the topic and how this app solves it, please read my full article on Medium.
+To explain, what is the topic and how this app solves it, please read my [full article on Medium](https://medium.com/@onkeljoe/mabeets-votes-with-quorum-a4aca22607e9)
 
 ## How do I deploy this?
 

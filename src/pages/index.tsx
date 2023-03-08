@@ -47,7 +47,12 @@ const Read: NextPage = () => {
             isExternal
             mx={4}
           >
-            <GithubIcon />
+            <IconButton
+              fontSize="xl"
+              variant="ghost"
+              icon={<GithubIcon />}
+              aria-label={`Github`}
+            />
           </Link>
           <IconButton
             mx={4}
