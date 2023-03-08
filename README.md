@@ -9,6 +9,10 @@ This little app checks the total voting power of all maBEETS reliquaries and sug
 - [Chakra-UI](https://chakra-ui.com/)
 - [T3-Stack](https://create.t3.gg/)
 
+## Github
+
+view the Github repository [onkeljoe/mabeets-quorum](https://github.com/onkeljoe/mabeets-quorum)
+
 ## Learn More
 
 To explain, what is the topic and how this app solves it, please read my full article on Medium.
