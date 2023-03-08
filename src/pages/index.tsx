@@ -3,6 +3,7 @@ import {
   Flex,
   Heading,
   IconButton,
+  Link,
   Table,
   Tbody,
   Td,
@@ -16,7 +17,11 @@ import {
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { api } from "~/utils/api";
-import { FaMoon as MoonIcon, FaSun as SunIcon } from "react-icons/fa";
+import {
+  FaMoon as MoonIcon,
+  FaSun as SunIcon,
+  FaGithub as GithubIcon,
+} from "react-icons/fa";
 
 const Read: NextPage = () => {
   const { toggleColorMode } = useColorMode();
@@ -37,6 +42,13 @@ const Read: NextPage = () => {
     return (
       <>
         <Flex m={6} justifyContent="flex-end">
+          <Link
+            href="https://github.com/onkeljoe/mabeets-quorum"
+            isExternal
+            mx={4}
+          >
+            <GithubIcon />
+          </Link>
           <IconButton
             mx={4}
             fontSize="xl"
@@ -63,7 +75,7 @@ const Read: NextPage = () => {
           onClick={toggleColorMode}
           icon={<SwitchIcon />}
           aria-label={`Switch to ${text} mode`}
-        />{" "}
+        />
       </Flex>
       <Card m={12} p={6}>
         <Heading mb={4} alignSelf="center">
@@ -137,6 +149,17 @@ const Read: NextPage = () => {
                 0
               ) * 0.05
             ).toLocaleString()}
+        </Text>
+        <Text fontSize="sm">
+          created by Onkeljoe 2023, V0.2{" "}
+          <Link href="https://github.com/onkeljoe/mabeets-quorum" isExternal>
+            <IconButton
+              fontSize="xl"
+              variant="ghost"
+              icon={<GithubIcon />}
+              aria-label={`Github`}
+            />
+          </Link>
         </Text>
       </Card>
     </>

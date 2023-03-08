@@ -13,7 +13,7 @@ const MyApp: AppType = ({ Component, pageProps }) => (
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     }
-    <Component {...pageProps} />;
+    <Component {...pageProps} />
   </ChakraProvider>
 );
 
