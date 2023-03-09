@@ -2,8 +2,11 @@ import {
   Card,
   Flex,
   Heading,
+  HStack,
   IconButton,
+  Input,
   Link,
+  Spacer,
   Table,
   Tbody,
   Td,
@@ -22,11 +25,14 @@ import {
   FaSun as SunIcon,
   FaGithub as GithubIcon,
 } from "react-icons/fa";
+import { useState } from "react";
+import pj from "../../package.json";
 
 const Read: NextPage = () => {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(MoonIcon, SunIcon);
+  const [percent, setPercent] = useState(5);
 
   const poolId = 2;
   const levelInfo = api.relic.getLevelInfo.useQuery(
@@ -144,19 +150,31 @@ const Read: NextPage = () => {
             </Tr>
           </Tfoot>
         </Table>
-        <Text as="b" alignSelf="flex-end" m={6}>
-          Quorum suggestion: 5% of total Voting Power:{" "}
-          {levelInfo &&
-            Math.round(
-              levelInfo.balance.reduce(
-                (sum, cur, index) =>
-                  sum + (cur * (levelInfo.multipliers[index] || 0)) / 100,
-                0
-              ) * 0.05
-            ).toLocaleString()}
-        </Text>
+        <HStack justifySelf="flex-end" my={6}>
+          <Text>select percentage: </Text>
+          <Input
+            maxW={16}
+            type="number"
+            value={percent}
+            onChange={(e) => setPercent(Number(e.target.value || 0))}
+          />
+          <Spacer />
+          <Text as="b" m={6}>
+            Quorum suggestion: {percent}% of total Voting Power:{" "}
+            {levelInfo &&
+              Math.round(
+                (levelInfo.balance.reduce(
+                  (sum, cur, index) =>
+                    sum + (cur * (levelInfo.multipliers[index] || 0)) / 100,
+                  0
+                ) *
+                  percent) /
+                  100
+              ).toLocaleString()}
+          </Text>
+        </HStack>
         <Text fontSize="sm">
-          created by Onkeljoe 2023, V0.2{" "}
+          created by Onkeljoe 2023, Version {pj.version}{" "}
           <Link href="https://github.com/onkeljoe/mabeets-quorum" isExternal>
             <IconButton
               fontSize="xl"
