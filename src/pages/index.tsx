@@ -107,7 +107,7 @@ const Read: NextPage = () => {
               levelInfo.multipliers.map((mul, index) => {
                 return (
                   <Tr key={index}>
-                    <Td isNumeric>{index}</Td>
+                    <Td isNumeric>{index + 1}</Td>
                     <Td isNumeric>{mul}</Td>
                     <Td isNumeric>
                       {(levelInfo.requiredMaturities[index] || 0) / 86400}
